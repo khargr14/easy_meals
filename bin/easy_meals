@@ -1,2 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env ruby
 
+ require './lib/easy_meals'
+
+EasyMeals::CLI.new.call

@@ -1,6 +1,4 @@
-require "easy_meals/version"
+require_relative  "./easy_meals/version"
 
-module EasyMeals
-  class Error < StandardError; end
-  # Your code goes here...
-end
+
+require_relative './easy_meals/cli'
