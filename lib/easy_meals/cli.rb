@@ -14,7 +14,7 @@ def categories_list
    _______________________________________________________________
    
    1. 5 Ingredients Or Less
-   2. Three Five-Ingredient Appetizers For Last-Minute 
+   2. 3 Five-Ingredient Appetizers For Last-Minute 
    3. 4 easy 3-Ingredient Vegetable Side Dishes
  DOC
 end
