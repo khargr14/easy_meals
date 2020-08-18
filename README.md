@@ -1,8 +1,7 @@
 # EasyMeals
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/easy_meals`. To experiment with that code, run `bin/console` for an interactive prompt.
+You don't have to drop major dough to make something delicious for dinner—save money by choosing cheaper proteins like chicken, ground beef, and tilapia, or going veg-friendly with bean-based meals. Whatever your style, these delish meals will please your entire famaily without breaking the bank in the process.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
