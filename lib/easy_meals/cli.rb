@@ -1,4 +1,3 @@
-
 class EasyMeals::CLI 
   
   def call
@@ -19,7 +18,7 @@ def categories_list
    2. 3 Five-Ingredient Appetizers For Last-Minute 
    3. 4 easy 3-Ingredient Vegetable Side Dishes
  DOC
- @recipes = EasyMeals::Recipe.all
+ #@recipes = EasyMeals::Recipe.all
 end
 
 def menu
