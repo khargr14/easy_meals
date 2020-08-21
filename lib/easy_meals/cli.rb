@@ -6,7 +6,7 @@ class EasyMeals::CLI
     happy_eating 
   end
 
-def categories_list
+  def categories_list
     puts <<-DOC
       "Welcome !!!
         Easy Fun Fast Meals"
@@ -24,9 +24,9 @@ def categories_list
     puts "Enter the number for quick ideas or type exit when done "
   
       input = nil
-        while input != "exit"
+       while input != "exit"
       input = gets.strip.downcase
-        case input
+       case input
         when "1"
         puts "Here is the TOP ideas for '5 Ingredinets Or Less'..."
         when "2"
@@ -34,9 +34,9 @@ def categories_list
         when "3"
         puts "Here is the TOP ideas for '4 easy 3-Ingredient Vegetable Side Dishes'..."
         else 
-        puts "more to come..." 
+       puts "more to come..." 
         end
-
+      end
   end
  
 def happy_eating
@@ -60,4 +60,4 @@ end
            # ------------------------------------------------------------------------------------------------------
            # DOC
    #create my if/else
- end
+end
