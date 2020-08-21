@@ -41,7 +41,7 @@ class EasyMeals::CLI
  
 def happy_eating
    puts " Enjoy your MEAL!!!"
- #@recipes = EasyMeals::Recipe.all
+ 
 end
 
 
