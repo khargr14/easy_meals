@@ -4,6 +4,7 @@ class EasyMeals::CLI
     categories_list
     menu
     happy_eating 
+    #goodbye
   end
 
   def categories_list
@@ -41,7 +42,7 @@ class EasyMeals::CLI
  
 def happy_eating
    puts " Enjoy your MEAL!!!"
- 
+ @recipes = EasyMeals::Recipe.all
 end
 
 
@@ -63,15 +64,16 @@ def menu
              DOC
            input = nil
       while input != "exit"
-          input = gets.strip.downcase
+           input = gets.strip.downcase
           if input == "search"
                 puts "search1"
-                
-            elsif input == "list"
+          elsif input == "list"
                  puts "list_recipes2"
-            elsif input == "exit"
+          elsif input == "more info"
+                puts "still thinking "     
+          elsif input == "exit"
                 puts "goodbye3"
-            elsif input.to_i > 0
+          elsif input.to_i > 0
              else
                 puts "Invalid command. Please type a valid command."
              end
@@ -80,7 +82,7 @@ def menu
   
   def goodbye
      puts " BIG TESTING"
-    #@recipes = EasyMeals::Recipe.all
+   # @recipes = EasyMeals::Recipe.all
   end
    
   end
