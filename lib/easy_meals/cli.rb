@@ -27,11 +27,11 @@ def categories_list
     input = gets.strip.downcase
     case input
     when "1"
-      puts "here is the top ideas for 5 ingredinets..."
+      puts "Here is the TOP ideas for '5 Ingredinets Or Less'..."
     when "2"
-       puts "here is the top ideas for 3 5 ingredients..."
+       puts "Here is the TOP ideas for '3 5-Ingredients Appetizers For Last-Minute'..."
     when "3"
-    puts "here is the top ideas for 4 easy..."
+    puts "Here is the TOP ideas for '4 easy 3-Ingredient Vegetable Side Dishes'..."
     else 
       puts "more to come..." 
     end
