@@ -43,11 +43,15 @@ end
 end
 
 
-def menu
-  
-end
-   
-
-
-   
-end
+#def menu 
+  #what my menu need to whatever (:name, :total_time, :url, :ingredients, :directions)
+  #puts <<-DOC
+            ------------------------------------------------------------------------------------------------------
+           # MENU:
+           # Type 'search' to use a search term to lookup recipes.
+           # Type the number of the recipe you would like more info on.
+           # Type 'list' to list recipes.
+           # Type 'exit' to exit application.
+           # ------------------------------------------------------------------------------------------------------
+           # DOC
+ #end 
