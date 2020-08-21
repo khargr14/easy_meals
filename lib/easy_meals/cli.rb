@@ -1,4 +1,4 @@
-wsclass EasyMeals::CLI 
+class EasyMeals::CLI 
   
   def call
     categories_list
@@ -34,14 +34,14 @@ def categories_list
     else 
       puts "more to come..." 
     end
-end  
-   end
+
  
  def happy_eating
    puts " Enjoy your MEAL!!!"
  #@recipes = EasyMeals::Recipe.all
+  end
+  
 end
-
 
 #def menu 
   #what my menu need to whatever (:name, :total_time, :url, :ingredients, :directions)
@@ -54,4 +54,5 @@ end
            # Type 'exit' to exit application.
            # ------------------------------------------------------------------------------------------------------
            # DOC
- #end 
+ #
+#
