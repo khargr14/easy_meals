@@ -2,7 +2,7 @@ class EasyMeals::CLI
   
   def call
     categories_list
-    #menu
+    menu
     happy_eating 
   end
 
@@ -28,13 +28,13 @@ class EasyMeals::CLI
       input = gets.strip.downcase
        case input
         when "1"
-        puts "Here is the TOP ideas for '5 Ingredinets Or Less'..."
+        puts "Here is the TOP ideas for '5 Ingredinets Or Less'...type exit when done"
         when "2"
-        puts "Here is the TOP ideas for '3 5-Ingredients Appetizers For Last-Minute'..."
+        puts "Here is the TOP ideas for '3 5-Ingredients Appetizers For Last-Minute'...'type exit when done'"
         when "3"
-        puts "Here is the TOP ideas for '4 easy 3-Ingredient Vegetable Side Dishes'..."
+        puts "Here is the TOP ideas for '4 easy 3-Ingredient Vegetable Side Dishes'...type exit when done"
         else 
-       puts "more to come..." 
+       puts " MORE TO COME ...  HEAD OVER TO VIEW OUR MENU" 
         end
       end
   end
@@ -46,18 +46,20 @@ end
 
 
 
-#def menu 
+def menu 
   
-  #put "tesing"
+  puts "Explore hundreds of top-rated quick and easy recipes for breakfast, lunch, and dinner."
   #what my menu need to have (:name, :total_time, :url, :ingredients, :directions)
-  #puts <<-DOC
-            #------------------------------------------------------------------------------------------------------
-           # MENU:
-           # Type 'search' to use a search term to lookup recipes.
-           # Type the number of the recipe you would like more info on.
-           # Type 'list' to list recipes.
-           # Type 'exit' to exit application.
-           # ------------------------------------------------------------------------------------------------------
-           # DOC
+  #more info --type the number of recipes you would like more info
+  puts <<-DOC
+            ____________________________________________________________________________________________________
+            MENU:
+            Type 'search' to use a search term to lookup recipes.
+            Tpye 'more info' 
+            Type 'list' to list recipes.
+            Type 'exit' to exit application.
+            ______________________________________________________________________________________________________
+             DOC
    #create my if/else
+  end
 end
