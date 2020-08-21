@@ -4,7 +4,7 @@ class EasyMeals::CLI
     categories_list
     menu
     happy_eating 
-    #goodbye
+    recipes
   end
 
   def categories_list
@@ -42,7 +42,7 @@ class EasyMeals::CLI
  
 def happy_eating
    puts " Enjoy your MEAL!!!"
- @recipes = EasyMeals::Recipe.all
+# @recipes = EasyMeals::Recipe.all
 end
 
 
@@ -80,9 +80,9 @@ def menu
            end
   #create my if/else
   
-  def goodbye
+  def recipes
      puts " BIG TESTING"
-   # @recipes = EasyMeals::Recipe.all
+    @recipes = EasyMeals::Recipe.all
   end
    
   end
