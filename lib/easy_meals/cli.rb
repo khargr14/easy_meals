@@ -47,8 +47,9 @@ end
 
 
 def menu 
-  
+       
   puts "Explore hundreds of top-rated quick and easy recipes for breakfast, lunch, and dinner."
+  
   #what my menu need to have (:name, :total_time, :url, :ingredients, :directions)
   #more info --type the number of recipes you would like more info
   puts <<-DOC
@@ -60,6 +61,27 @@ def menu
             Type 'exit' to exit application.
             ______________________________________________________________________________________________________
              DOC
-   #create my if/else
+           input = nil
+      while input != "exit"
+          input = gets.strip.downcase
+          if input == "search"
+                puts "search1"
+                
+            elsif input == "list"
+                 puts "list_recipes2"
+            elsif input == "exit"
+                puts "goodbye3"
+            elsif input.to_i > 0
+             else
+                puts "Invalid command. Please type a valid command."
+             end
+           end
+  #create my if/else
+  
+  def goodbye
+     puts " BIG TESTING"
+    #@recipes = EasyMeals::Recipe.all
+  end
+   
   end
 end
