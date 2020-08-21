@@ -66,7 +66,7 @@ def menu
       while input != "exit"
            input = gets.strip.downcase
           if input == "search"
-                puts "search1"
+                 "search1" #my returns (blank)
           elsif input == "list"
                  puts "list_recipes2"
           elsif input == "more info"
