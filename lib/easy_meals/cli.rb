@@ -2,14 +2,15 @@ class EasyMeals::CLI
   
   def call
     categories_list
-    menu
+    #menu
     happy_eating 
   end
 
 def categories_list
-   puts "Welcome !!!
-    Easy Fun Fast Meals"
    puts <<-DOC
+   "Welcome !!!
+        Easy Fun Fast Meals"
+   
    Hello its all Tasty Recipes CLI! In this CLI app, you will be able to search for recipes using a keyword such as 'chicken', 'beef' or whatever your heart  desire, then see a list of recipes on Tasty.co  website. You can then request more details on the recipe! Lets make easy fun meals!
    _______________________________________________________________
  Quick ideas  
@@ -18,9 +19,9 @@ def categories_list
    2. 3 Five-Ingredient Appetizers For Last-Minute 
    3. 4 easy 3-Ingredient Vegetable Side Dishes
  DOC
+ end 
  
- 
- puts "Enter the number for quick ideas or type exit when done "
+  puts "Enter the number for quick ideas or type exit when done "
   input = nil
   while input != "exit"
     input = gets.strip.downcase
@@ -34,17 +35,20 @@ def categories_list
     else 
       puts "more to come..." 
     end
-
+end
+end
  
  def happy_eating
    puts " Enjoy your MEAL!!!"
  #@recipes = EasyMeals::Recipe.all
   end
-  
-end
+
+
 
 #def menu 
-  #what my menu need to whatever (:name, :total_time, :url, :ingredients, :directions)
+  
+  #put "tesing"
+  #what my menu need to have (:name, :total_time, :url, :ingredients, :directions)
   #puts <<-DOC
             ------------------------------------------------------------------------------------------------------
            # MENU:
@@ -54,5 +58,5 @@ end
            # Type 'exit' to exit application.
            # ------------------------------------------------------------------------------------------------------
            # DOC
- #
-#
+   #create my if/else
+ end
