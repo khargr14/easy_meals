@@ -1,13 +1,13 @@
 class EasyMeals::CLI 
   
   def call
-    categories_list
+    quick_ideas
     menu
     happy_eating 
     recipes
   end
 
-  def categories_list
+  def quick_ideas
     puts <<-DOC
       "Welcome !!!
         Easy Fun Fast Meals"
@@ -29,11 +29,25 @@ class EasyMeals::CLI
       input = gets.strip.downcase
        case input
         when "1"
-        puts "Here is the TOP ideas for '5 Ingredinets Or Less'...type exit when done"
+        puts "Green Bean Casserole
+              Slow Cooker Mashed Potatoes
+              Apple Pie Bake
+        
+          Here is the TOP ideas for '5 Ingredinets Or Less'...type exit when done"
+        
+          
         when "2"
-        puts "Here is the TOP ideas for '3 5-Ingredients Appetizers For Last-Minute'...'type exit when done'"
+        puts  "Bacon-wrapped Brussels Sprouts
+              Pull-Apart Garlic Rolls
+              Pigs In A Blanket
+        
+            Here is the TOP ideas for '3 5-Ingredients Appetizers
+            For Last-Minute'...'type exit when done'"
         when "3"
-        puts "Here is the TOP ideas for '4 easy 3-Ingredient Vegetable Side Dishes'...type exit when done"
+        puts "Honey-Roasted Carrots
+              Butter Parmesan Corn
+              Bacon And Onion Roasted Potatoes
+ Here is the TOP ideas for '4 easy 3-Ingredient Vegetable Side Dishes'...type exit when done"
         else 
        puts " MORE TO COME ...  HEAD OVER TO VIEW OUR MENU" 
         end
