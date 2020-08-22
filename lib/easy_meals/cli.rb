@@ -29,9 +29,9 @@ class EasyMeals::CLI
       input = gets.strip.downcase
        case input
         when "1"
-        puts "Green Bean Casserole
-              Slow Cooker Mashed Potatoes
-              Apple Pie Bake
+        puts " *Green Bean Casserole
+               *Slow Cooker Mashed Potatoes
+               *Apple Pie Bake
         
           Here is the TOP ideas for '5 Ingredinets Or Less'...type exit when done"
         
@@ -49,7 +49,7 @@ class EasyMeals::CLI
               Bacon And Onion Roasted Potatoes
  Here is the TOP ideas for '4 easy 3-Ingredient Vegetable Side Dishes'...type exit when done"
         else 
-       puts " MORE TO COME ...  HEAD OVER TO VIEW OUR MENU" 
+       puts "MORE TO COME type exit and ... HEAD OVER TO VIEW OUR MENU" 
         end
       end
   end
