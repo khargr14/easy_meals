@@ -2,13 +2,13 @@ class EasyMeals::Scraper
   
   def self.search_url(search_word)
         search_url = "https://tasty.co/topic/5-ingredients-or-less"
-        recipies_only_filter = "/CUSTOM_FACET:RECIPE_FACET"
+       # recipies_only_filter = "/CUSTOM_FACET:RECIPE_FACET"
 
-        split_term = search_term.split(" ")
+        # split_term = search_term.split(" ")
 
-        split_term.each { |term|
-            search_url << term + "-"
-        }
+        # split_term.each { |term|
+        #     search_url << term + "-"
+        # }
 
         search_url << recipies_only_filter
         get_page_and_recipes(search_url, search_word)
@@ -22,7 +22,7 @@ def self.get_page_and_recipes(url, search_word)
             new_recipe["name"] = recipe.search(".m-MediaBlock__a-HeadlineText").text
             new_recipe["total_time"]= recipe.search("dd").text
             new_recipe["url"] = recipe.search(".m-MediaBlock__a-Headline a").attr("href").value.gsub("//", "")
-            FoodNetworkRecipeCli::Recipe.new_from_scrape(new_recipe)
+            EasyMeals::Recipe.new_from_scrape(new_recipe)
         end
     end
 
