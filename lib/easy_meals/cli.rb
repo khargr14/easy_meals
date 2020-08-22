@@ -62,7 +62,7 @@ end
 
 def search
   print "Enter a keyword you would like to search for (eg. chicken, stew, or beef burger): "
-  @search_term = gets
+  @search_word = gets
 
   EasyMeals::Scraper.search_url(@search_word)
   puts "Getting recipes for #{@search_word}"
@@ -100,6 +100,46 @@ end
 #             end
 #           end
 #   #create my if/else
+  
+  def list_recipes
+        recipes = EasyMeals::Recipe.all
+
+        if recipes == []
+            puts "There are currently no recipes to list. Please search a recipe first."
+        else
+            puts "------------------------------------------------------------------------------------------------------"
+            recipes.each.with_index(1) { |recipe, i|
+                puts "#{i}. #{recipe.name} - #{recipe.total_time}"
+            }
+            puts "------------------------------------------------------------------------------------------------------"
+        end
+    end
+
+    def display_recipe(recipe)
+        puts "Name: #{recipe.name}"
+        #puts "Total time: #{recipe.total_time}"
+
+        puts ""
+
+        puts "Ingredients:"
+        recipe.ingredients.each.with_index(1) { |ingredient, i|
+            puts "#{i}. #{ingredient}"
+        }
+
+        puts ""
+
+        puts "Directions:"
+        recipe.directions.each.with_index(1) { |direction, i|
+            puts "#{i}. #{direction}"
+            puts ""
+        }
+        @recipes = EasyMeals::Recipe.all
+    end
+  
+  
+  
+  
+  
   
   
   
@@ -149,10 +189,10 @@ end
   
   
   
-  def recipes
-     puts " BIG TESTING"
-    @recipes = EasyMeals::Recipe.all
-  end
+  # def recipes
+  #   puts " BIG TESTING"
+  #   @recipes = EasyMeals::Recipe.all
+  # end
    
   
 end
