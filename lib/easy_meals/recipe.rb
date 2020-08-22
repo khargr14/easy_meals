@@ -1,27 +1,37 @@
+require 'nokogiri'
+require 'open-uri'
+
 class EasyMeals::Recipe
-  attr_accessor :name, :category , :url, :ingredients, :directions #:total_time
- 
- def initialize(name, url, category)
-    @name = name
-    @url = url
-    @category = category
-    @ingredients = []
-    @instructions = []
-    self.class.all << self
-  end
+  #attr_accessor :name, :category , :url, :ingredients, :directions #:total_time
+
+   attr_accessor :name, :total_time, :url, :ingredients, :directions
+    @@all = []
+
+    def initialize
+        @@all << self
+    end
+
+    def self.new_from_tasty(recipe_hash) #url
+        recipe = self.new
+
+        recipe_hash.each {|key, value| recipe.send("#{key}=", value)}
+    end
+
+    def self.all
+        @@all
+    end
 
  
- 
   
- def self.all 
-   #i should return a bunch of instance of Recipe
-    @@all
-   puts "TESTING CONNECTING PAGE"
- end
+# def self.all 
+#   #i should return a bunch of instance of Recipe
+#     @@all
+#   puts "TESTING CONNECTING PAGE"
+# end
   
- def self.new_from_tasty(url) 
-   puts "new self to see working"
- end 
+# def self.new_from_tasty(url) 
+#   puts "new self to see working"
+# end 
   
   
 end
