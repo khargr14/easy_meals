@@ -15,13 +15,13 @@ class EasyMeals::Recipe
   
  def self.all 
    #i should return a bunch of instance of Recipe
-    
+    @@all
    puts "TESTING CONNECTING PAGE"
  end
   
-  
-  
-  
+ def self.new_from_tasty(url) 
+   puts "new self to see working"
+ end 
   
   
 end
