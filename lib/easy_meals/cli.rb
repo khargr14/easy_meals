@@ -64,47 +64,95 @@ def search
   print "Enter a keyword you would like to search for (eg. chicken, stew, or beef burger): "
   @search_term = gets
 
-  EasyMeals::Scraper.search_url(@search_term)
-  puts "Getting recipes for #{@search_term}"
+  EasyMeals::Scraper.search_url(@search_word)
+  puts "Getting recipes for #{@search_word}"
 end
 
-def menu 
+# def menu 
        
-  puts "Explore hundreds of top-rated quick and easy recipes for breakfast, lunch, and dinner."
+#   puts "Explore hundreds of top-rated quick and easy recipes for breakfast, lunch, and dinner."
   
-  #what my menu need to have (:name, :total_time, :url, :ingredients, :directions)
-  #more info --type the number of recipes you would like more info
-  puts <<-DOC
-            ____________________________________________________________________________________________________
+#   #what my menu need to have (:name, :total_time, :url, :ingredients, :directions)
+#   #more info --type the number of recipes you would like more info
+#   puts <<-DOC
+#             ____________________________________________________________________________________________________
+#             MENU:
+#             Type 'search' to use a search term to lookup recipes.
+#             Tpye 'more info' 
+#             Type 'list' to list recipes.
+#             Type 'exit' to exit application.
+#             ______________________________________________________________________________________________________
+#             DOC
+#           input = nil
+#       while input != "exit"
+#           input = gets.strip.downcase
+#           if input == "search"
+#                 "search1" #my returns (blank)
+#           elsif input == "list"
+#                 puts "list_recipes2"
+#           elsif input == "more info"
+#                 puts "still thinking "     
+#           elsif input == "exit"
+#                 puts "goodbye3"
+#           elsif input.to_i > 0
+#             else
+#                 puts "Invalid command. Please type a valid command."
+#             end
+#           end
+#   #create my if/else
+  
+  
+  
+   def menu
+        input = nil
+
+        while input != "exit"
+            puts <<~DOC
+            ------------------------------------------------------------------------------------------------------
             MENU:
             Type 'search' to use a search term to lookup recipes.
-            Tpye 'more info' 
+            Type the number of the recipe you would like more info on.
             Type 'list' to list recipes.
             Type 'exit' to exit application.
-            ______________________________________________________________________________________________________
-             DOC
-           input = nil
-      while input != "exit"
-           input = gets.strip.downcase
-          if input == "search"
-                 "search1" #my returns (blank)
-          elsif input == "list"
-                 puts "list_recipes2"
-          elsif input == "more info"
-                puts "still thinking "     
-          elsif input == "exit"
-                puts "goodbye3"
-          elsif input.to_i > 0
-             else
+            ------------------------------------------------------------------------------------------------------
+            DOC
+
+            input = gets.strip.downcase
+
+            if input == "search"
+                search
+            elsif input == "list"
+                list_recipes
+            elsif input == "exit"
+                goodbye
+            elsif input.to_i > 0
+                if input.to_i <= EasyMeals::Recipe.all.size
+                    recipe = EasyMeals::Recipe.all[input.to_i-1]
+                    EasyMeals::Scraper.scrape_recipe(recipe) if !recipe.ingredients
+                    display_recipe(recipe)
+                else
+                    puts "Invalid index."
+                end
+            else
                 puts "Invalid command. Please type a valid command."
-             end
-           end
-  #create my if/else
+            end
+        end
+    end
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   def recipes
      puts " BIG TESTING"
     @recipes = EasyMeals::Recipe.all
   end
    
-  end
+  
 end
