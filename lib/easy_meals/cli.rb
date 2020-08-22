@@ -5,6 +5,7 @@ class EasyMeals::CLI
     menu
     happy_eating 
     recipes
+    search
   end
 
   def quick_ideas
@@ -59,7 +60,13 @@ def happy_eating
 # @recipes = EasyMeals::Recipe.all
 end
 
+def search
+  print "Enter a keyword you would like to search for (eg. chicken, stew, or beef burger): "
+  @search_term = gets
 
+  EasyMeals::Scraper.search_url(@search_term)
+  puts "Getting recipes for #{@search_term}"
+end
 
 def menu 
        

@@ -4,11 +4,16 @@ require 'open-uri'
 class EasyMeals::Recipe
   #attr_accessor :name, :category , :url, :ingredients, :directions #:total_time
 
-   attr_accessor :name, :total_time, :url, :ingredients, :directions
+   attr_accessor :name, :url, :ingredients, :directions, :recipe
     @@all = []
 
     def initialize
-        @@all << self
+      @name = name
+      @url = url
+      @recipe = recipe
+      @ingredients = []
+      @directions = []
+      @@all << self
     end
 
     def self.new_from_tasty(recipe_hash) #url
