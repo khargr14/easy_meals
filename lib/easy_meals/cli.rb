@@ -1,6 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
-
+require 'json'
+require 'httparty'
 class EasyMeals::CLI 
   
   def call

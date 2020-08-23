@@ -1,21 +1,12 @@
 require 'nokogiri'
 require 'open-uri'
-
-
+require 'json'
+require 'httparty'
 class EasyMeals::Scraper
   
   def self.search_url(search_word)
-        search_url = "https://tasty.co/topic/5-ingredients-or-less"
-        recipies_only_filter = "/CUSTOM_FACET:RECIPE_FACET"
-
-        split_word = search_word.split(" ")
-
-         split_word.each { |word|
-             search_url << word + "-"
-         }
-
-        search_url << recipies_only_filter
-        get_page_and_recipes(search_url, search_word)
+        search_url = "https://www.allrecipes.com/search/"
+        # h_url, search_word)
   end
 def self.get_page_and_recipes(url, search_word)
         doc = Nokogiri::HTML(open(url))
@@ -31,7 +22,7 @@ def self.get_page_and_recipes(url, search_word)
     end
 
     def self.scrape_recipe(recipe)
-        doc = Nokogiri::HTML(open("https://#{https://tasty.co}")) # recipe.url
+        doc = Nokogiri::HTML(open("https://#{recipe.url}")) # recipe.url
         recipe.ingredients = []
         recipe.directions = []
         

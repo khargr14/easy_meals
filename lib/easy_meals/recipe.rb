@@ -1,6 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
-
+require 'json'
+require 'httparty'
 class EasyMeals::Recipe
   #attr_accessor :name, :category , :url, :ingredients, :directions #:total_time
 
