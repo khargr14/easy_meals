@@ -3,12 +3,18 @@ require 'open-uri'
 require 'json'
 require 'httparty'
 class EasyMeals::CLI 
+
+
+
+  recipes_in_search = [];
   
   def call
-    quick_ideas
+
+
+    #quick_ideas
     menu
     happy_eating 
-    recipes
+    #recipes
     search
   end
 
@@ -68,8 +74,22 @@ def search
   print "Enter a keyword you would like to search for (eg. chicken, stew, or beef burger): "
   @search_word = gets
 
-  EasyMeals::Scraper.search_url(@search_word)
+
   puts "Getting recipes for #{@search_word}"
+  
+  recipes_in_search = []
+  recipes_in_search = EasyMeals::Scraper.search_url(@search_word)
+
+  recipes_in_search.each do |recipe|
+    recipe.display_self
+  end
+  
+end
+
+def goodbye
+
+  puts "Thank you for using the Tasty CLI"
+
 end
 
 # def menu 
@@ -112,42 +132,29 @@ end
             puts "There are currently no recipes to list. Please search a recipe first."
         else
             puts "------------------------------------------------------------------------------------------------------"
-            recipes.each.with_index(1) { |recipe, i|
-                puts "#{i}. #{recipe.name} - #{recipe.total_time}"
+            recipes.each_with_index { |recipe, i|
+                puts "#{i+1})   Name: #{recipe.name}    Total time - #{recipe.total_time}"
             }
             puts "------------------------------------------------------------------------------------------------------"
         end
     end
-
-    def display_recipe(recipe)
-        puts "Name: #{recipe.name}"
-        #puts "Total time: #{recipe.total_time}"
-
-        puts ""
-
-        puts "Ingredients:"
-        recipe.ingredients.each.with_index(1) { |ingredient, i|
-            puts "#{i}. #{ingredient}"
-        }
-
-        puts ""
-
-        puts "Directions:"
-        recipe.directions.each.with_index(1) { |direction, i|
-            puts "#{i}. #{direction}"
-            puts ""
-        }
-      #  @recipes = EasyMeals::Recipe.all
-    end
+    
   
-  
-  
-  
+   def clear_screen()
+
+      i = 0
+      while i < 100 do
+        i = i+1
+        puts("")  
+      end
+
+   end
   
   
   
   
    def menu
+        clear_screen
         input = nil
 
         while input != "exit"
@@ -165,21 +172,26 @@ end
 
             if input == "search"
                 search
+                clear_screen
+                puts "Search finished. Run list to see recipes"
             elsif input == "list"
+                clear_screen
                 list_recipes
             elsif input == "exit"
                 goodbye
             elsif input.to_i > 0
+                clear_screen
                 if input.to_i <= EasyMeals::Recipe.all.size
                     recipe = EasyMeals::Recipe.all[input.to_i-1]
                     EasyMeals::Scraper.scrape_recipe(recipe) if !recipe.ingredients
-                    display_recipe(recipe)
+                    recipe.display_self
                 else
                     puts "Invalid index."
                 end
             else
                 puts "Invalid command. Please type a valid command."
             end
+
         end
     end
   
