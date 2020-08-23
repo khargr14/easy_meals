@@ -10,7 +10,7 @@ class EasyMeals::Scraper
         #     search_url << term + "-"
         # }
 
-        search_url << recipies_only_filter
+        #search_url << recipies_only_filter
         get_page_and_recipes(search_url, search_word)
   end
 def self.get_page_and_recipes(url, search_word)
