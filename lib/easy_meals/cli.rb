@@ -1,3 +1,6 @@
+require 'nokogiri'
+require 'open-uri'
+
 class EasyMeals::CLI 
   
   def call
@@ -133,7 +136,7 @@ end
             puts "#{i}. #{direction}"
             puts ""
         }
-        @recipes = EasyMeals::Recipe.all
+      #  @recipes = EasyMeals::Recipe.all
     end
   
   

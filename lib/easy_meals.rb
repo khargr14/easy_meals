@@ -4,4 +4,4 @@ require_relative './easy_meals/scraper'
 
 require 'pry'
 require 'nokogiri'
-#require 'open-uri'
+require 'open-uri'

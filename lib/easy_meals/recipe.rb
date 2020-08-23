@@ -16,7 +16,7 @@ class EasyMeals::Recipe
       @@all << self
     end
 
-    def self.new_from_tasty(recipe_hash) #url
+    def self.new_from_tasty(recipe_hash) #url // recipe_hash
         recipe = self.new
 
         recipe_hash.each {|key, value| recipe.send("#{key}=", value)}

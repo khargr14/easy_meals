@@ -1,3 +1,7 @@
+require 'nokogiri'
+require 'open-uri'
+
+
 class EasyMeals::Scraper
   
   def self.search_url(search_word)
@@ -27,7 +31,7 @@ def self.get_page_and_recipes(url, search_word)
     end
 
     def self.scrape_recipe(recipe)
-        doc = Nokogiri::HTML(open("https://#{recipe.url}"))
+        doc = Nokogiri::HTML(open("https://#{https://tasty.co}")) # recipe.url
         recipe.ingredients = []
         recipe.directions = []
         
