@@ -133,7 +133,7 @@ end
         else
             puts "------------------------------------------------------------------------------------------------------"
             recipes.each_with_index { |recipe, i|
-                puts "#{i+1})   Name: #{recipe.name}    Total time - #{recipe.total_time}"
+                puts "#{i+1})   Name: #{recipe.name}"
             }
             puts "------------------------------------------------------------------------------------------------------"
         end
@@ -143,7 +143,7 @@ end
    def clear_screen()
 
       i = 0
-      while i < 100 do
+      while i < 5 do
         i = i+1
         puts("")  
       end

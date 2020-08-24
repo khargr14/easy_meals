@@ -3,18 +3,17 @@ require 'open-uri'
 require 'json'
 require 'httparty'
 class EasyMeals::Recipe
-  #attr_accessor :name, :category , :url, :ingredients, :directions #:total_time
+  #attr_accessor :name, :category , :url, :ingredients, :directions 
 
-   attr_accessor :name, :url, :ingredients, :directions, :recipe, :total_time
+   attr_accessor :name, :url, :ingredients, :directions, :recipe 
     @@all = []
 
-    def initialize(name,url,recipe,ingredients,directions,total_time)
+    def initialize(name,url,recipe,ingredients,directions)
       @name = name
       @url = url
       @recipe = recipe
       @ingredients = ingredients
       @directions = directions
-      @total_time = total_time
       @@all << self
     end
 
@@ -41,7 +40,7 @@ class EasyMeals::Recipe
     
     def display_self()
         puts "Name: #{@name}"
-        #puts "Total time: #{recipe.total_time}"
+        
 
         puts ""
 

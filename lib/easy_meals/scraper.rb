@@ -87,13 +87,7 @@ class EasyMeals::Scraper
 
 
 
-      #Get total time from the webpage. 
-      total_time_HTMLelement = single_recipe_doc.css(".recipe-meta-item-body")[2]
-      total_time = "unknown" # Some recipes dont have a time value so add this just in case.
-      if total_time_HTMLelement != nil 
-        #puts self.remove_space_characters_before_and_after(total_time_HTMLelement.inner_html)
-        #total_time = self.remove_space_characters_before_and_after( total_time_HTMLelement.inner_html )
-      end 
+       
 
 
 
@@ -103,7 +97,7 @@ class EasyMeals::Scraper
       rows_ingredients = single_recipe_doc.css(".ingredients-item-name")
       rows_ingredients.each do |ingredient|
         #puts ingredient.inner_html
-       # ingredients << self.remove_space_characters_before_and_after( ingredient.inner_html ) 
+        ingredients << ( ingredient.inner_html ) 
 
       end
 
@@ -124,7 +118,7 @@ class EasyMeals::Scraper
 
       # Create a new instance of the EasyMeals::Recipe class we created in the recipe.rb file.
       # Send the data we caught from out inner-Nokogiri search and put them inside this new EasyMeals:Recipe instance.
-      return EasyMeals::Recipe.new(name,url,recipe,ingredients,directions,total_time)
+      return EasyMeals::Recipe.new(name,url,recipe,ingredients,directions)
 
     end
 end
