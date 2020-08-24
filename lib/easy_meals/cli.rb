@@ -11,10 +11,10 @@ class EasyMeals::CLI
   def call
 
 
-    #quick_ideas
+    quick_ideas
     menu
     happy_eating 
-    #recipes
+    recipes
     search
   end
 
@@ -23,7 +23,7 @@ class EasyMeals::CLI
       "Welcome !!!
         Easy Fun Fast Meals"
    
-             Hello its all Tasty Recipes CLI! In this CLI app, you will be able to search for recipes using a keyword such as 'chicken', 'beef' or whatever your heart  desire, then see a list of recipes on Tasty.co  website. You can then request more details on the recipe! Lets make easy fun meals!
+             Hello its all Easy Meals Recipes CLI! In this CLI app, you will be able to search for recipes using a keyword such as 'chicken', 'beef' or whatever your heart  desire, then see a list of recipes on Easy Meals website. You can then request more details on the recipe! Lets make easy fun meals!
    _______________________________________________________________
  Quick ideas  
  
@@ -71,7 +71,7 @@ def happy_eating
 end
 
 def search
-  print "Enter a keyword you would like to search for (eg. chicken, stew, or beef burger): "
+  print "Enter a keyword you would like to search for (eg. chicken, pork, or beef ): "
   @search_word = gets
 
 
@@ -88,43 +88,10 @@ end
 
 def goodbye
 
-  puts "Thank you for using the Tasty CLI"
+  puts "Thank you for using the Easy Meals CLI"
 
 end
 
-# def menu 
-       
-#   puts "Explore hundreds of top-rated quick and easy recipes for breakfast, lunch, and dinner."
-  
-#   #what my menu need to have (:name, :total_time, :url, :ingredients, :directions)
-#   #more info --type the number of recipes you would like more info
-#   puts <<-DOC
-#             ____________________________________________________________________________________________________
-#             MENU:
-#             Type 'search' to use a search term to lookup recipes.
-#             Tpye 'more info' 
-#             Type 'list' to list recipes.
-#             Type 'exit' to exit application.
-#             ______________________________________________________________________________________________________
-#             DOC
-#           input = nil
-#       while input != "exit"
-#           input = gets.strip.downcase
-#           if input == "search"
-#                 "search1" #my returns (blank)
-#           elsif input == "list"
-#                 puts "list_recipes2"
-#           elsif input == "more info"
-#                 puts "still thinking "     
-#           elsif input == "exit"
-#                 puts "goodbye3"
-#           elsif input.to_i > 0
-#             else
-#                 puts "Invalid command. Please type a valid command."
-#             end
-#           end
-#   #create my if/else
-  
   def list_recipes
         recipes = EasyMeals::Recipe.all
 
@@ -143,7 +110,7 @@ end
    def clear_screen()
 
       i = 0
-      while i < 5 do
+      while i < 0 do
         i = i+1
         puts("")  
       end
@@ -194,16 +161,6 @@ end
 
         end
     end
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   # def recipes
   #   puts " BIG TESTING"
