@@ -77,8 +77,8 @@ class EasyMeals::Scraper
 
       # Prepare and fill variables that we will use to create a new EasyMeals::Recipe
       name = single_recipe_doc.css(".headline-wrapper .heading-content").inner_html
-      name = self.remove_initial_space_characters(name) #remove empty spaces before the name 
-      name = self.remove_trailing_space_characters(name) #remove empty spaces after the name
+      #name = self.remove_initial_space_characters(name) #remove empty spaces before the name 
+      #name = self.remove_trailing_space_characters(name) #remove empty spaces after the name
 
 
       url = single_recipe_url
@@ -92,7 +92,7 @@ class EasyMeals::Scraper
       total_time = "unknown" # Some recipes dont have a time value so add this just in case.
       if total_time_HTMLelement != nil 
         #puts self.remove_space_characters_before_and_after(total_time_HTMLelement.inner_html)
-        total_time = self.remove_space_characters_before_and_after( total_time_HTMLelement.inner_html )
+        #total_time = self.remove_space_characters_before_and_after( total_time_HTMLelement.inner_html )
       end 
 
 
@@ -103,7 +103,7 @@ class EasyMeals::Scraper
       rows_ingredients = single_recipe_doc.css(".ingredients-item-name")
       rows_ingredients.each do |ingredient|
         #puts ingredient.inner_html
-        ingredients << self.remove_space_characters_before_and_after( ingredient.inner_html ) 
+       # ingredients << self.remove_space_characters_before_and_after( ingredient.inner_html ) 
 
       end
 
@@ -116,7 +116,7 @@ class EasyMeals::Scraper
       rows_directions = single_recipe_doc.css(".instructions-section-item")
       rows_directions.each do |direction|
         #puts direction.css(".paragraph p").inner_html
-        directions << self.remove_space_characters_before_and_after( direction.css(".paragraph p").inner_html)
+        directions << ( direction.css(".paragraph p").inner_html)
       end
 
 
