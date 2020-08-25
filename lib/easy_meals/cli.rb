@@ -14,7 +14,7 @@ class EasyMeals::CLI
     quick_ideas
     menu
     happy_eating 
-    recipes
+    #recipes
     search
   end
 
@@ -58,39 +58,39 @@ class EasyMeals::CLI
         puts "Honey-Roasted Carrots
               Butter Parmesan Corn
               Bacon And Onion Roasted Potatoes
- Here is the TOP ideas for '4 easy 3-Ingredient Vegetable Side Dishes'...type exit when done"
+              Here is the TOP ideas for '4 easy 3-Ingredient Vegetable Side Dishes'...type exit when done"
         else 
        puts "MORE TO COME type exit and ... HEAD OVER TO VIEW OUR MENU" 
         end
       end
   end
  
-def happy_eating
+  def happy_eating
    puts " Enjoy your MEAL!!!"
-# @recipes = EasyMeals::Recipe.all
-end
+    # @recipes = EasyMeals::Recipe.all
+  end
 
-def search
-  print "Enter a keyword you would like to search for (eg. chicken, pork, or beef ): "
-  @search_word = gets
+  def search
+   print "Enter a keyword you would like to search for (eg. chicken, pork, or beef ): "
+   @search_word = gets
 
 
-  puts "Getting recipes for #{@search_word}"
+   puts "Getting recipes for #{@search_word}"
   
-  recipes_in_search = []
-  recipes_in_search = EasyMeals::Scraper.search_url(@search_word)
+   recipes_in_search = []
+   recipes_in_search = EasyMeals::Scraper.search_url(@search_word)
 
-  recipes_in_search.each do |recipe|
-    recipe.display_self
+   recipes_in_search.each do |recipe|
+   recipe.display_self
   end
   
 end
 
-def goodbye
+  def goodbye
 
-  puts "Thank you for using the Easy Meals CLI"
+     puts "Thank you for using the Easy Meals CLI"
 
-end
+  end
 
   def list_recipes
         recipes = EasyMeals::Recipe.all
