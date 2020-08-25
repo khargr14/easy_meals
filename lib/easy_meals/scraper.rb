@@ -7,9 +7,6 @@ require 'httparty'
 class EasyMeals::Scraper
 
 
-
-
-  
   def self.search_url(search_word)
     main_url = "https://www.allrecipes.com/search/?q=" + search_word
     doc = Nokogiri::HTML(open(main_url))

@@ -71,7 +71,7 @@ class EasyMeals::CLI
   end
 
   def search
-   print "Enter a keyword you would like to search for (eg. chicken, pork, or beef ): "
+   print "Enter a keyword you would like to search for (eg. chicken, sweet, or beef ): "
    @search_word = gets
 
 
@@ -131,7 +131,7 @@ end
             Type 'search' to use a search term to lookup recipes.
             Type the number of the recipe you would like more info on.
             Type 'list' to list recipes.
-            Type 'exit' to exit application.
+            Type 'exit' to exit when done.
             ------------------------------------------------------------------------------------------------------
             DOC
 
