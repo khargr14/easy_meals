@@ -25,42 +25,7 @@ class EasyMeals::CLI
    _______________________________________________________________
  
  DOC
-#   Quick ideas  
- 
-#   1. 5 Ingredients Or Less
-#   2. 3 Five-Ingredient Appetizers For Last-Minute 
-#   3. 4 easy 3-Ingredient Vegetable Side Dishes
- 
-#     puts "Enter the number for quick ideas or type exit when done "
-  
-#       input = nil
-#       while input != "exit"
-#       input = gets.strip.downcase
-#       case input
-#         when "1"
-#         puts " *Green Bean Casserole
-#               *Slow Cooker Mashed Potatoes
-#               *Apple Pie Bake
-        
-#           Here is the TOP ideas for '5 Ingredinets Or Less'...type exit when done"
-        
-          
-#         when "2"
-#         puts  "Bacon-wrapped Brussels Sprouts
-#               Pull-Apart Garlic Rolls
-#               Pigs In A Blanket
-        
-#             Here is the TOP ideas for '3 5-Ingredients Appetizers
-#             For Last-Minute'...'type exit when done'"
-#         when "3"
-#         puts "Honey-Roasted Carrots
-#               Butter Parmesan Corn
-#               Bacon And Onion Roasted Potatoes
-# Here is the TOP ideas for '4 easy 3-Ingredient Vegetable Side Dishes'...type exit when done"
-#         else 
-#           puts "MORE TO COME type exit and ... HEAD OVER TO VIEW OUR MENU" 
-#         end
-#       end
+
   end
  
 def happy_eating
@@ -127,8 +92,8 @@ end
             ------------------------------------------------------------------------------------------------------
             MENU:
             Type 'search' to use a search term to lookup recipes.
-            Type the number of the recipe you would like more info on.
             Type 'list' to list recipes.
+            Type the number of the recipe you would like more info on.
             Type 'quick ideas' to list recipes.
             Type 'exit' to exit application.
             ------------------------------------------------------------------------------------------------------
