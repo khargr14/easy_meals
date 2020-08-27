@@ -10,57 +10,57 @@ class EasyMeals::CLI
 
     apifetcher = EasyMeals::ApiFetcher.new("https://raw.githubusercontent.com/peterlubiana/ruby-recipes/master/recipe.json")
     apifetcher.create_recipes_from_json
-
+    greetings
     menu
   end
 
 
 
-  def quick_ideas
+  def greetings
     puts <<-DOC
       "Welcome !!!
         Easy Fun Fast Meals"
    
-             Hello its all Tasty Recipes CLI! In this CLI app, you will be able to search for recipes using a keyword such as 'chicken', 'beef' or whatever your heart  desire, then see a list of recipes on Tasty.co  website. You can then request more details on the recipe! Lets make easy fun meals!
+             Hello its all Easy Meals Recipes CLI! In this CLI app, you will be able to search for recipes using a keyword such as 'chicken', 'beef' or whatever your heart  desire, then see a list of recipes on all recipes website. You can then request more details on the recipe! Lets make easy fun meals!
    _______________________________________________________________
- Quick ideas  
  
-   1. 5 Ingredients Or Less
-   2. 3 Five-Ingredient Appetizers For Last-Minute 
-   3. 4 easy 3-Ingredient Vegetable Side Dishes
  DOC
-
+#   Quick ideas  
  
-    puts "Enter the number for quick ideas or type exit when done "
+#   1. 5 Ingredients Or Less
+#   2. 3 Five-Ingredient Appetizers For Last-Minute 
+#   3. 4 easy 3-Ingredient Vegetable Side Dishes
+ 
+#     puts "Enter the number for quick ideas or type exit when done "
   
-      input = nil
-       while input != "exit"
-      input = gets.strip.downcase
-       case input
-        when "1"
-        puts " *Green Bean Casserole
-               *Slow Cooker Mashed Potatoes
-               *Apple Pie Bake
+#       input = nil
+#       while input != "exit"
+#       input = gets.strip.downcase
+#       case input
+#         when "1"
+#         puts " *Green Bean Casserole
+#               *Slow Cooker Mashed Potatoes
+#               *Apple Pie Bake
         
-          Here is the TOP ideas for '5 Ingredinets Or Less'...type exit when done"
+#           Here is the TOP ideas for '5 Ingredinets Or Less'...type exit when done"
         
           
-        when "2"
-        puts  "Bacon-wrapped Brussels Sprouts
-              Pull-Apart Garlic Rolls
-              Pigs In A Blanket
+#         when "2"
+#         puts  "Bacon-wrapped Brussels Sprouts
+#               Pull-Apart Garlic Rolls
+#               Pigs In A Blanket
         
-            Here is the TOP ideas for '3 5-Ingredients Appetizers
-            For Last-Minute'...'type exit when done'"
-        when "3"
-        puts "Honey-Roasted Carrots
-              Butter Parmesan Corn
-              Bacon And Onion Roasted Potatoes
- Here is the TOP ideas for '4 easy 3-Ingredient Vegetable Side Dishes'...type exit when done"
-        else 
-          puts "MORE TO COME type exit and ... HEAD OVER TO VIEW OUR MENU" 
-        end
-      end
+#             Here is the TOP ideas for '3 5-Ingredients Appetizers
+#             For Last-Minute'...'type exit when done'"
+#         when "3"
+#         puts "Honey-Roasted Carrots
+#               Butter Parmesan Corn
+#               Bacon And Onion Roasted Potatoes
+# Here is the TOP ideas for '4 easy 3-Ingredient Vegetable Side Dishes'...type exit when done"
+#         else 
+#           puts "MORE TO COME type exit and ... HEAD OVER TO VIEW OUR MENU" 
+#         end
+#       end
   end
  
 def happy_eating
@@ -69,7 +69,7 @@ def happy_eating
 end
 
 def search
-   print "Enter a keyword you would like to search for (eg. chicken, stew, or beef burger): "
+   print "Enter a keyword you would like to search for (eg. chicken, beef, or pork): "
    search_word = gets.strip.downcase
 
   all_recipes = EasyMeals::Recipe.all
@@ -85,7 +85,7 @@ end
 
 def goodbye
 
-  puts "Thank you for using the Tasty CLI"
+  puts "Thank you for using the Easy Meals CLI"
 
 end
 

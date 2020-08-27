@@ -3,7 +3,7 @@ require 'json'
 require 'httparty'
 
 class EasyMeals::Recipe
-  #attr_accessor :name, :category , :url, :ingredients, :directions #:total_time
+  
 
    attr_accessor :name, :url, :ingredients, :directions, :recipe, :total_time
     @@all = []
