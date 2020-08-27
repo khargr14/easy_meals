@@ -1,29 +1,27 @@
-require 'nokogiri'
 require 'open-uri'
 require 'json'
 require 'httparty'
+
 class EasyMeals::CLI 
 
-
-
-  recipes_in_search = [];
   
+
   def call
 
+    apifetcher = EasyMeals::ApiFetcher.new("https://raw.githubusercontent.com/peterlubiana/ruby-recipes/master/recipe.json")
+    apifetcher.create_recipes_from_json
 
-    quick_ideas
     menu
-    happy_eating 
-    #recipes
-    search
   end
+
+
 
   def quick_ideas
     puts <<-DOC
       "Welcome !!!
         Easy Fun Fast Meals"
    
-             Hello its all Easy Meals Recipes CLI! In this CLI app, you will be able to search for recipes using a keyword such as 'chicken', 'beef' or whatever your heart  desire, then see a list of recipes on Easy Meals website. You can then request more details on the recipe! Lets make easy fun meals!
+             Hello its all Tasty Recipes CLI! In this CLI app, you will be able to search for recipes using a keyword such as 'chicken', 'beef' or whatever your heart  desire, then see a list of recipes on Tasty.co  website. You can then request more details on the recipe! Lets make easy fun meals!
    _______________________________________________________________
  Quick ideas  
  
@@ -58,39 +56,39 @@ class EasyMeals::CLI
         puts "Honey-Roasted Carrots
               Butter Parmesan Corn
               Bacon And Onion Roasted Potatoes
-              Here is the TOP ideas for '4 easy 3-Ingredient Vegetable Side Dishes'...type exit when done"
+ Here is the TOP ideas for '4 easy 3-Ingredient Vegetable Side Dishes'...type exit when done"
         else 
-       puts "MORE TO COME type exit and ... HEAD OVER TO VIEW OUR MENU" 
+          puts "MORE TO COME type exit and ... HEAD OVER TO VIEW OUR MENU" 
         end
       end
   end
  
-  def happy_eating
+def happy_eating
    puts " Enjoy your MEAL!!!"
-    # @recipes = EasyMeals::Recipe.all
-  end
+# @recipes = EasyMeals::Recipe.all
+end
 
-  def search
-   print "Enter a keyword you would like to search for (eg. chicken, sweet, or beef ): "
-   @search_word = gets
+def search
+   print "Enter a keyword you would like to search for (eg. chicken, stew, or beef burger): "
+   search_word = gets.strip.downcase
 
+  all_recipes = EasyMeals::Recipe.all
 
-   puts "Getting recipes for #{@search_word}"
-  
-   recipes_in_search = []
-   recipes_in_search = EasyMeals::Scraper.search_url(@search_word)
-
-   recipes_in_search.each do |recipe|
-   recipe.display_self
+  puts "search results for search: " + search_word
+  all_recipes.each_with_index do |recipe, indx|
+    if recipe.name.downcase[search_word]
+       puts "#{indx+1}) " + recipe.name 
+    end
   end
   
 end
 
-  def goodbye
+def goodbye
 
-     puts "Thank you for using the Easy Meals CLI"
+  puts "Thank you for using the Tasty CLI"
 
-  end
+end
+
 
   def list_recipes
         recipes = EasyMeals::Recipe.all
@@ -100,7 +98,7 @@ end
         else
             puts "------------------------------------------------------------------------------------------------------"
             recipes.each_with_index { |recipe, i|
-                puts "#{i+1})   Name: #{recipe.name}"
+                puts "#{i+1})   Name: #{recipe.name}    Total time - #{recipe.total_time}"
             }
             puts "------------------------------------------------------------------------------------------------------"
         end
@@ -110,7 +108,7 @@ end
    def clear_screen()
 
       i = 0
-      while i < 0 do
+      while i < 5 do
         i = i+1
         puts("")  
       end
@@ -131,14 +129,17 @@ end
             Type 'search' to use a search term to lookup recipes.
             Type the number of the recipe you would like more info on.
             Type 'list' to list recipes.
-            Type 'exit' to exit when done.
+            Type 'quick ideas' to list recipes.
+            Type 'exit' to exit application.
             ------------------------------------------------------------------------------------------------------
             DOC
 
+ 
             input = gets.strip.downcase
-
+       
             if input == "search"
                 search
+
                 clear_screen
                 puts "Search finished. Run list to see recipes"
             elsif input == "list"
@@ -146,11 +147,16 @@ end
                 list_recipes
             elsif input == "exit"
                 goodbye
+                exit 1
+
+            elsif input == "quick ideas"
+              quick_ideas
+
+
             elsif input.to_i > 0
                 clear_screen
                 if input.to_i <= EasyMeals::Recipe.all.size
                     recipe = EasyMeals::Recipe.all[input.to_i-1]
-                    EasyMeals::Scraper.scrape_recipe(recipe) if !recipe.ingredients
                     recipe.display_self
                 else
                     puts "Invalid index."
@@ -162,10 +168,6 @@ end
         end
     end
   
-  # def recipes
-  #   puts " BIG TESTING"
-  #   @recipes = EasyMeals::Recipe.all
-  # end
-   
+  
   
 end

@@ -1,30 +1,25 @@
-require 'nokogiri'
 require 'open-uri'
 require 'json'
 require 'httparty'
-class EasyMeals::Recipe
-  #attr_accessor :name, :category , :url, :ingredients, :directions 
 
-   attr_accessor :name, :url, :ingredients, :directions, :recipe 
+class EasyMeals::Recipe
+  #attr_accessor :name, :category , :url, :ingredients, :directions #:total_time
+
+   attr_accessor :name, :url, :ingredients, :directions, :recipe, :total_time
     @@all = []
 
-    def initialize(name,url,recipe,ingredients,directions)
+    def initialize(name,url,recipe,ingredients,directions,total_time)
       @name = name
       @url = url
       @recipe = recipe
       @ingredients = ingredients
       @directions = directions
+      @total_time = total_time
       @@all << self
     end
 
 
-    #Class Methods
-
-    def self.new_from_tasty(recipe_hash) #url // recipe_hash
-        recipe = self.new
-
-        recipe_hash.each {|key, value| recipe.send("#{key}=", value)}
-    end
+    #Class Method
 
     def self.all
         @@all
@@ -32,15 +27,10 @@ class EasyMeals::Recipe
 
 
 
-
     # Instance methods.
-
-
-
     
     def display_self()
         puts "Name: #{@name}"
-        
 
         puts ""
 
@@ -59,16 +49,5 @@ class EasyMeals::Recipe
     end
 
  
-  
-# def self.all 
-#   #i should return a bunch of instance of Recipe
-#     @@all
-#   puts "TESTING CONNECTING PAGE"
-# end
-  
-# def self.new_from_tasty(url) 
-#   puts "new self to see working"
-# end 
-  
   
 end
