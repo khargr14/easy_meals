@@ -94,7 +94,6 @@ end
             Type 'search' to use a search term to lookup recipes.
             Type 'list' to list recipes.
             Type the number of the recipe you would like more info on.
-            Type 'quick ideas' to list recipes.
             Type 'exit' to exit application.
             ------------------------------------------------------------------------------------------------------
             DOC
@@ -114,8 +113,7 @@ end
                 goodbye
                 exit 1
 
-            elsif input == "quick ideas"
-              quick_ideas
+            
 
 
             elsif input.to_i > 0
