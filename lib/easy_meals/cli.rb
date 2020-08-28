@@ -69,22 +69,11 @@ end
         end
     end
     
-  
-   def clear_screen()
-
-      i = 0
-      while i < 5 do
-        i = i+1
-        puts("")  
-      end
-
-   end
-  
-  
+ 
   
   
    def menu
-        clear_screen
+       
         input = nil
 
         while input != "exit"
@@ -104,10 +93,10 @@ end
             if input == "search"
                 search
 
-                clear_screen
+                #clear_screen
                 puts "Search finished. Run list to see recipes"
             elsif input == "list"
-                clear_screen
+             
                 list_recipes
             elsif input == "exit"
                 goodbye
@@ -117,7 +106,7 @@ end
 
 
             elsif input.to_i > 0
-                clear_screen
+              
                 if input.to_i <= EasyMeals::Recipe.all.size
                     recipe = EasyMeals::Recipe.all[input.to_i-1]
                     recipe.display_self
