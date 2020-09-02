@@ -12,6 +12,7 @@ class EasyMeals::CLI
     apifetcher.create_recipes_from_json
     greetings
     menu
+    display_recipe(name, ingredients, directions)
   end
 
 
@@ -53,6 +54,37 @@ def goodbye
   puts "Thank you for using the Easy Meals CLI"
 
 end
+
+#refactor
+
+def display_recipe(name, ingredients, directions)
+        puts "Name: #{name}"
+
+        puts ""
+
+        puts "Ingredients:"
+        ingredients.each_with_index { |ingredient, i|
+            puts "#{i+1}. #{ingredient}"
+        }
+
+        puts ""
+
+        puts "Directions:"
+        directions.each_with_index { |direction, i|
+            puts "#{i+1}. #{direction}"
+            puts ""
+        }
+  end
+
+
+
+
+
+
+
+
+
+
 
 
   def list_recipes
@@ -109,7 +141,8 @@ end
               
                 if input.to_i <= EasyMeals::Recipe.all.size
                     recipe = EasyMeals::Recipe.all[input.to_i-1]
-                    recipe.display_self
+                    ##recipe.display_self
+                    display_recipe(recipe.name, recipe.ingredients, recipe.directions)
                 else
                     puts "Invalid index."
                 end

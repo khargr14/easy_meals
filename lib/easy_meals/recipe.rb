@@ -29,24 +29,24 @@ class EasyMeals::Recipe
 
     # Instance methods.
     
-    def display_self()
-        puts "Name: #{@name}"
+    # def display_self()
+    #     puts "Name: #{@name}"
 
-        puts ""
+    #     puts ""
 
-        puts "Ingredients:"
-        @ingredients.each_with_index { |ingredient, i|
-            puts "#{i+1}. #{ingredient}"
-        }
+    #     puts "Ingredients:"
+    #     @ingredients.each_with_index { |ingredient, i|
+    #         puts "#{i+1}. #{ingredient}"
+    #     }
 
-        puts ""
+    #     puts ""
 
-        puts "Directions:"
-        @directions.each_with_index { |direction, i|
-            puts "#{i+1}. #{direction}"
-            puts ""
-        }
-    end
+    #     puts "Directions:"
+    #     @directions.each_with_index { |direction, i|
+    #         puts "#{i+1}. #{direction}"
+    #         puts ""
+    #     }
+    # end
 
  
   
